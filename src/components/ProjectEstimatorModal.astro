@@ -3,51 +3,210 @@
 
 <div id="booking-modal" class="modal-overlay">
   <div class="modal-card">
-    <a href="#" class="close-modal">&times;</a>
+    <!-- Close Button -->
+    <a href="#" class="close-modal" id="modal-close-btn" aria-label="Close Modal">&times;</a>
     
-    <span class="eyebrow">SEO USTAAD USA — FREE PROPOSAL</span>
-    <h2>Get Your Free US Web Project Proposal</h2>
-    <p class="subtitle">Tell us what you need help with and we will send you a clear, simple price quote in less than 4 hours.</p>
+    <div class="modal-header">
+      <span class="eyebrow">SEO USTAAD USA — FREE PROPOSAL</span>
+      <h2 id="modal-step-title">Get Your Free US Web Proposal</h2>
+      
+      <!-- Progress Bar & Indicator -->
+      <div class="step-indicator-wrap">
+        <div class="step-progress-bg">
+          <div class="step-progress-bar" id="step-bar" style="width: 33.33%;"></div>
+        </div>
+        <span class="step-counter" id="step-counter-text">Step 1 of 3</span>
+      </div>
+    </div>
 
-    <form class="estimator-form" onsubmit="event.preventDefault(); alert('Thank you! SEO Ustaad USA received your request. We will email you a simple proposal within 4 hours.');">
-      <div class="form-group">
-        <label>What is your main goal?</label>
-        <div class="chip-options">
-          <label class="chip"><input type="radio" name="type" value="canvas" checked /> Get More US Customers</label>
-          <label class="chip"><input type="radio" name="type" value="aeo" /> Get Recommended by ChatGPT & Google</label>
-          <label class="chip"><input type="radio" name="type" value="app" /> Fix Slow Website Speed</label>
+    <!-- Multi-Step Form -->
+    <form id="multi-step-form" class="estimator-form" onsubmit="event.preventDefault();">
+      
+      <!-- STEP 1: Objective Selection -->
+      <div class="form-step active" data-step="1">
+        <p class="step-question">1. What is your primary business goal?</p>
+        <div class="touch-cards-grid">
+          <label class="touch-card selected">
+            <input type="radio" name="goal" value="Get More US Customers" checked />
+            <div class="card-content">
+              <span class="card-icon">🚀</span>
+              <div class="card-text">
+                <span class="card-title">Get More US Customers</span>
+                <span class="card-desc">High-converting web design to turn visitors into sales.</span>
+              </div>
+            </div>
+            <span class="check-mark">✓</span>
+          </label>
+
+          <label class="touch-card">
+            <input type="radio" name="goal" value="Rank #1 on Google & ChatGPT" />
+            <div class="card-content">
+              <span class="card-icon">🤖</span>
+              <div class="card-text">
+                <span class="card-title">Rank #1 on Google & ChatGPT</span>
+                <span class="card-desc">AI search dominance & AEO entity optimization.</span>
+              </div>
+            </div>
+            <span class="check-mark">✓</span>
+          </label>
+
+          <label class="touch-card">
+            <input type="radio" name="goal" value="Fix Slow Website Speed" />
+            <div class="card-content">
+              <span class="card-icon">⚡</span>
+              <div class="card-text">
+                <span class="card-title">Fix Slow Website Speed</span>
+                <span class="card-desc">1-second load speed & 100/100 Core Web Vitals score.</span>
+              </div>
+            </div>
+            <span class="check-mark">✓</span>
+          </label>
         </div>
       </div>
 
-      <div class="form-group">
-        <label>When do you need it ready?</label>
-        <div class="chip-options">
-          <label class="chip"><input type="radio" name="timeline" value="fast" checked /> 2 Weeks (Super Fast)</label>
-          <label class="chip"><input type="radio" name="timeline" value="std" /> 4 Weeks (Standard)</label>
+      <!-- STEP 2: Timeline & Budget -->
+      <div class="form-step" data-step="2">
+        <p class="step-question">2. When do you need your site ready?</p>
+        <div class="touch-cards-grid">
+          <label class="touch-card selected">
+            <input type="radio" name="timeline" value="2-Week Rapid Sprint" checked />
+            <div class="card-content">
+              <span class="card-icon">⏱️</span>
+              <div class="card-text">
+                <span class="card-title">2-Week Rapid Sprint</span>
+                <span class="card-desc">Fast-track delivery ready in 14 business days.</span>
+              </div>
+            </div>
+            <span class="check-mark">✓</span>
+          </label>
+
+          <label class="touch-card">
+            <input type="radio" name="timeline" value="4-Week Full Engineering" />
+            <div class="card-content">
+              <span class="card-icon">🛠️</span>
+              <div class="card-text">
+                <span class="card-title">4-Week Full Engineering</span>
+                <span class="card-desc">Comprehensive build with custom 3D animations.</span>
+              </div>
+            </div>
+            <span class="check-mark">✓</span>
+          </label>
         </div>
       </div>
 
-      <div class="form-group">
-        <label>Your Business Email</label>
-        <input type="email" required placeholder="yourname@company.com" class="input-field" />
+      <!-- STEP 3: Contact Info -->
+      <div class="form-step" data-step="3">
+        <p class="step-question">3. Where should we send your free proposal?</p>
+        <div class="input-fields-stack">
+          <div class="form-field">
+            <label for="user-name">Your Full Name</label>
+            <input type="text" id="user-name" required placeholder="Alex Morgan" class="input-field" />
+          </div>
+
+          <div class="form-field">
+            <label for="user-email">Your Business Email</label>
+            <input type="email" id="user-email" required placeholder="alex@company.com" class="input-field" />
+          </div>
+        </div>
       </div>
 
-      <button type="submit" class="button-primary submit-btn">Get Free Proposal Now →</button>
+      <!-- STEP NAVIGATION BUTTONS -->
+      <div class="form-nav-row">
+        <button type="button" id="btn-prev" class="button-secondary-pill nav-btn" style="display: none;">← Back</button>
+        <button type="button" id="btn-next" class="button-primary nav-btn">Next Step →</button>
+        <button type="submit" id="btn-submit" class="button-primary nav-btn" style="display: none;">Request Free US Proposal →</button>
+      </div>
+
     </form>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    const steps = document.querySelectorAll('.form-step');
+    const stepBar = document.getElementById('step-bar');
+    const stepCounterText = document.getElementById('step-counter-text');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const btnSubmit = document.getElementById('btn-submit');
+    const form = document.getElementById('multi-step-form');
+
+    // Selection highlights on touch cards
+    document.querySelectorAll('.touch-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        const groupName = card.querySelector('input')?.name;
+        if (groupName) {
+          document.querySelectorAll(`input[name="${groupName}"]`).forEach((input) => {
+            input.closest('.touch-card')?.classList.remove('selected');
+          });
+          card.classList.add('selected');
+        }
+      });
+    });
+
+    function updateStepUI() {
+      // Hide all steps, show active
+      steps.forEach((s) => {
+        const stepNum = parseInt(s.getAttribute('data-step') || '1');
+        s.classList.toggle('active', stepNum === currentStep);
+      });
+
+      // Update progress bar & text
+      const progressPercent = (currentStep / totalSteps) * 100;
+      if (stepBar) stepBar.style.width = `${progressPercent}%`;
+      if (stepCounterText) stepCounterText.innerText = `Step ${currentStep} of ${totalSteps}`;
+
+      // Toggle buttons
+      if (btnPrev) btnPrev.style.display = currentStep > 1 ? 'inline-flex' : 'none';
+      if (btnNext) btnNext.style.display = currentStep < totalSteps ? 'inline-flex' : 'none';
+      if (btnSubmit) btnSubmit.style.display = currentStep === totalSteps ? 'inline-flex' : 'none';
+    }
+
+    if (btnNext) {
+      btnNext.addEventListener('click', () => {
+        if (currentStep < totalSteps) {
+          currentStep++;
+          updateStepUI();
+        }
+      });
+    }
+
+    if (btnPrev) {
+      btnPrev.addEventListener('click', () => {
+        if (currentStep > 1) {
+          currentStep--;
+          updateStepUI();
+        }
+      });
+    }
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Proposal request submitted successfully to SEO Ustaad USA! We will send your custom proposal within 4 business hours.');
+        currentStep = 1;
+        updateStepUI();
+        window.location.hash = '';
+      });
+    }
+  });
+</script>
 
 <style>
   .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(16px);
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 16px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -62,12 +221,15 @@
     background: #141416;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-lg);
-    padding: 40px;
-    max-width: 600px;
-    width: 100%;
+    padding: 32px 28px;
+    width: min(580px, 94vw);
+    max-height: 88vh;
+    overflow-y: auto;
     position: relative;
     color: #ffffff;
     box-shadow: var(--shadow-product);
+    display: flex;
+    flex-direction: column;
   }
 
   .close-modal {
@@ -75,77 +237,218 @@
     top: 20px;
     right: 24px;
     font-size: 28px;
-    color: #888;
+    color: #a0a0a0;
     text-decoration: none;
     line-height: 1;
+    z-index: 10;
   }
 
   .close-modal:hover {
     color: #ffffff;
   }
 
-  .subtitle {
-    font-size: 14px;
-    color: var(--color-body-muted);
+  .modal-header {
     margin-bottom: 24px;
-    line-height: 1.5;
   }
 
-  .estimator-form {
+  .modal-header h2 {
+    font-size: 22px;
+    margin-top: 4px;
+    color: #ffffff;
+  }
+
+  .step-indicator-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .step-progress-bg {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .step-progress-bar {
+    height: 100%;
+    background: var(--color-primary-on-dark);
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .step-counter {
+    font-size: 12px;
+    color: var(--color-primary-on-dark);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .form-step {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .form-step.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-question {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .touch-cards-grid {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
+    margin-bottom: 24px;
   }
 
-  .form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--color-primary-on-dark);
-  }
-
-  .chip-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .chip {
-    background: #222226;
+  .touch-card {
+    background: #1c1c1f;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 8px 14px;
-    border-radius: 9999px;
-    font-size: 13px;
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    user-select: none;
+    min-height: 56px;
   }
 
-  .chip input {
-    accent-color: var(--color-primary);
+  .touch-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .touch-card:hover {
+    background: #242428;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .touch-card.selected {
+    background: rgba(0, 102, 204, 0.15);
+    border-color: var(--color-primary-on-dark);
+    box-shadow: 0 0 16px rgba(41, 151, 255, 0.2);
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .card-icon {
+    font-size: 22px;
+  }
+
+  .card-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .card-desc {
+    font-size: 12px;
+    color: var(--color-body-muted);
+    margin-top: 2px;
+  }
+
+  .check-mark {
+    font-size: 16px;
+    color: var(--color-primary-on-dark);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .touch-card.selected .check-mark {
+    opacity: 1;
+  }
+
+  .input-fields-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .form-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--color-primary-on-dark);
   }
 
   .input-field {
     width: 100%;
-    padding: 12px 16px;
-    background: #222226;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px 16px;
+    background: #1c1c1f;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-sm);
     color: #ffffff;
     font-size: 15px;
     outline: none;
+    transition: border-color 0.2s ease;
   }
 
   .input-field:focus {
     border-color: var(--color-primary-on-dark);
+    box-shadow: 0 0 12px rgba(41, 151, 255, 0.2);
   }
 
-  .submit-btn {
-    width: 100%;
-    margin-top: 12px;
-    padding: 14px;
+  .form-nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .nav-btn {
+    flex: 1;
+    padding: 13px;
+    font-size: 15px;
     font-weight: 600;
+  }
+
+  /* Responsive Adjustments for Small Mobile Displays */
+  @media (max-width: 480px) {
+    .modal-card {
+      padding: 24px 18px;
+    }
+
+    .modal-header h2 {
+      font-size: 19px;
+    }
+
+    .touch-card {
+      padding: 12px 14px;
+    }
+
+    .card-title {
+      font-size: 14px;
+    }
+
+    .card-desc {
+      font-size: 11px;
+    }
   }
 </style>
