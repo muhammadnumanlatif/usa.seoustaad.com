@@ -7,20 +7,21 @@ interface Props {
 }
 
 const {
-  title = "Bespoke Web Development & GSAP Scroll Trigger Engineering | USA",
-  description = "High-performance web architecture, 3D GSAP ScrollTrigger canvas experiences, and 100/100 Core Web Vitals for US startups, enterprise brands, and creative agencies."
+  title = "SEO Ustaad USA | Bespoke GSAP Scroll Motion & AEO/GEO Web Engineering",
+  description = "SEO Ustaad USA crafts high-ticket 60fps scroll-trigger canvas websites, sub-second web architecture, and AI Answer Engine Optimization (AEO/GEO) for US startups and enterprise brands."
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://usa-seoustaad-com.pages.dev");
 
-// AEO & GEO Structured JSON-LD Data for US Market Services
+// AEO & GEO Structured JSON-LD Data for SEO Ustaad USA
 const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Bespoke GSAP & Web Engineering Studio",
-  "image": `${Astro.site}og-image.jpg`,
-  "@id": `${Astro.site}#organization`,
-  "url": Astro.site?.toString(),
+  "name": "SEO Ustaad USA",
+  "alternateName": ["SEO Ustaad", "SEO Ustaad US Web Engineering"],
+  "image": "https://usa-seoustaad-com.pages.dev/og-image.jpg",
+  "@id": "https://usa-seoustaad-com.pages.dev/#organization",
+  "url": "https://usa-seoustaad-com.pages.dev",
   "telephone": "+1-800-555-0199",
   "priceRange": "$$$$",
   "address": {
@@ -38,33 +39,43 @@ const professionalServiceSchema = {
     { "@type": "Country", "name": "United States" },
     { "@type": "State", "name": "California" },
     { "@type": "State", "name": "New York" },
-    { "@type": "State", "name": "Texas" }
+    { "@type": "State", "name": "Texas" },
+    { "@type": "State", "name": "Washington" }
   ],
   "knowsAbout": [
-    "GSAP ScrollTrigger Development",
-    "HTML5 Canvas Sequence Animation",
-    "Astro.js Static Site Generation",
-    "Sub-Second Core Web Vitals Optimization",
-    "US SaaS Landing Page Engineering"
+    "Generative Engine Optimization (GEO)",
+    "Answer Engine Optimization (AEO)",
+    "GSAP 3 ScrollTrigger Canvas Development",
+    "Astro.js Zero-JS Web Architecture",
+    "Sub-Second Core Web Vitals (100/100 Lighthouse)",
+    "US SaaS Conversion Rate Optimization (CRO)"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Web Engineering Services",
+    "name": "SEO Ustaad USA Engineering & Optimization Services",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Scroll-Trigger Canvas & Motion Websites",
-          "description": "60fps frame-scrubbed interactive canvas web experiences engineered with GSAP and Astro."
+          "name": "Scroll-Trigger Canvas & Motion Web Engineering",
+          "description": "Apple-grade 60fps frame-scrubbed interactive canvas web experiences engineered with GSAP, Lenis, and Astro.js."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "High-Ticket SaaS & Agency Web Development",
-          "description": "100/100 Lighthouse performance optimized custom web applications for US tech disruptors."
+          "name": "AEO & GEO AI Search Engine Dominance",
+          "description": "Structured data entity engineering designed for direct citation in ChatGPT, Claude, Perplexity, and Google AI Overviews."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "100/100 Core Web Vitals & Technical SEO",
+          "description": "Sub-second LCP and zero CLS web optimization guaranteed for high-ticket US venture-backed startups."
         }
       }
     ]
@@ -72,7 +83,7 @@ const professionalServiceSchema = {
 };
 ---
 
-<!usr-html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -83,19 +94,22 @@ const professionalServiceSchema = {
   <title>{title}</title>
   <meta name="title" content={title} />
   <meta name="description" content={description} />
+  <meta name="keywords" content="SEO Ustaad USA, GSAP scroll trigger website, AEO agency USA, GEO optimization, 3D canvas website development, Astro js web development, Core Web Vitals 100" />
+  <meta name="author" content="SEO Ustaad USA" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href={canonicalURL} />
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content={Astro.url} />
+  <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
+  <meta property="og:site_name" content="SEO Ustaad USA" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Meta Tags -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content={Astro.url} />
+  <meta property="twitter:url" content={canonicalURL} />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
 
