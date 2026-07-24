@@ -7,18 +7,18 @@ interface Props {
 }
 
 const {
-  title = "SEO Ustaad USA | Bespoke GSAP Scroll Motion & AEO/GEO Web Engineering",
-  description = "SEO Ustaad USA crafts high-ticket 60fps scroll-trigger canvas websites, sub-second web architecture, and AI Answer Engine Optimization (AEO/GEO) for US startups and enterprise brands."
+  title = "SEO Ustaad USA | Super-Fast Websites That Bring You US Customers",
+  description = "SEO Ustaad USA builds 1-second loading 3D websites that rank #1 on Google and get recommended by ChatGPT. Ready in 14 days with zero monthly fees."
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://usa-seoustaad-com.pages.dev");
 
-// AEO & GEO Structured JSON-LD Data for SEO Ustaad USA
+// AEO & GEO Structured JSON-LD Data for SEO Ustaad USA (Super Simple Schema)
 const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "SEO Ustaad USA",
-  "alternateName": ["SEO Ustaad", "SEO Ustaad US Web Engineering"],
+  "alternateName": ["SEO Ustaad", "SEO Ustaad US Web Development"],
   "image": "https://usa-seoustaad-com.pages.dev/og-image.jpg",
   "@id": "https://usa-seoustaad-com.pages.dev/#organization",
   "url": "https://usa-seoustaad-com.pages.dev",
@@ -39,43 +39,32 @@ const professionalServiceSchema = {
     { "@type": "Country", "name": "United States" },
     { "@type": "State", "name": "California" },
     { "@type": "State", "name": "New York" },
-    { "@type": "State", "name": "Texas" },
-    { "@type": "State", "name": "Washington" }
+    { "@type": "State", "name": "Texas" }
   ],
   "knowsAbout": [
-    "Generative Engine Optimization (GEO)",
-    "Answer Engine Optimization (AEO)",
-    "GSAP 3 ScrollTrigger Canvas Development",
-    "Astro.js Zero-JS Web Architecture",
-    "Sub-Second Core Web Vitals (100/100 Lighthouse)",
-    "US SaaS Conversion Rate Optimization (CRO)"
+    "Fast Web Development USA",
+    "ChatGPT Search Recommendation (AEO/GEO)",
+    "3D Scroll Animation",
+    "Google Search #1 Ranking"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "SEO Ustaad USA Engineering & Optimization Services",
+    "name": "SEO Ustaad USA Services",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Scroll-Trigger Canvas & Motion Web Engineering",
-          "description": "Apple-grade 60fps frame-scrubbed interactive canvas web experiences engineered with GSAP, Lenis, and Astro.js."
+          "name": "Super Fast 1-Second Web Development",
+          "description": "Custom websites that load in under 1 second and turn visitors into paying US customers."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AEO & GEO AI Search Engine Dominance",
-          "description": "Structured data entity engineering designed for direct citation in ChatGPT, Claude, Perplexity, and Google AI Overviews."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "100/100 Core Web Vitals & Technical SEO",
-          "description": "Sub-second LCP and zero CLS web optimization guaranteed for high-ticket US venture-backed startups."
+          "name": "ChatGPT & Google Search Dominance (AEO/GEO)",
+          "description": "Getting your business recommended first on ChatGPT, Google, and Siri."
         }
       }
     ]
@@ -94,7 +83,7 @@ const professionalServiceSchema = {
   <title>{title}</title>
   <meta name="title" content={title} />
   <meta name="description" content={description} />
-  <meta name="keywords" content="SEO Ustaad USA, GSAP scroll trigger website, AEO agency USA, GEO optimization, 3D canvas website development, Astro js web development, Core Web Vitals 100" />
+  <meta name="keywords" content="SEO Ustaad USA, fast web development USA, cheap high quality web design, get customers from ChatGPT, website ready in 14 days" />
   <meta name="author" content="SEO Ustaad USA" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href={canonicalURL} />
