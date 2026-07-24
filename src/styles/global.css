@@ -1,31 +1,35 @@
 /* ==========================================================================
-   Apple Design Language - Global Design System Tokens & Utilities
-   Source Specification: DESIGN.md inspired by Apple
+   Impeccable Aesthetics + Apple Design System
+   Source Specification: SKILL.md (Impeccable Aesthetics v4.0) & DESIGN.md
    ========================================================================== */
 
 :root {
-  /* Color Palette - Apple Pure & Minimal Tokens */
-  --color-primary: #0066cc;             /* Action Blue - The universal click signal */
-  --color-primary-focus: #0071e3;       /* Focus Ring Blue */
-  --color-primary-on-dark: #2997ff;     /* Sky Link Blue for dark tiles */
+  /* Impeccable Color Tokens */
+  --color-ink: #141413;                 /* Deep Ink for primary text & dark backgrounds */
+  --color-offwhite: #faf9f5;            /* Off-White for light text & parchment canvas */
+  --color-accent: #0066cc;              /* Action Accent Blue */
+  --color-accent-glow: #00f0ff;         /* Cyan Neon Glow Accent */
   
-  --color-ink: #1d1d1f;                 /* Primary text on light canvas */
-  --color-body: #1d1d1f;                /* Body text */
-  --color-body-on-dark: #ffffff;        /* White text on dark tiles */
-  --color-body-muted: #cccccc;          /* Muted body on dark */
-  --color-ink-muted-80: #333333;       /* Pearl button text */
-  --color-ink-muted-48: #7a7a7a;       /* Secondary/footer legal text */
+  --color-primary: #0066cc;             
+  --color-primary-focus: #0071e3;       
+  --color-primary-on-dark: #2997ff;     
   
-  --color-canvas: #ffffff;              /* Pure White Canvas */
-  --color-canvas-parchment: #f5f5f7;    /* Signature Apple Parchment */
-  --color-surface-pearl: #fafafc;       /* Secondary button fill */
-  --color-surface-tile-1: #1d1d1f;      /* Dark Tile surface */
-  --color-surface-tile-2: #272729;      /* Micro-step dark tile */
-  --color-surface-tile-3: #141415;      /* Deeper dark tile */
-  --color-surface-black: #000000;       /* Global Nav True Void Black */
+  --color-body: #141413;                
+  --color-body-on-dark: #faf9f5;        
+  --color-body-muted: #cccccc;          
+  --color-ink-muted-80: #2b2b28;       
+  --color-ink-muted-48: #7a7a7a;       
   
-  --color-hairline: #e0e0e0;            /* Soft card border */
-  --color-divider-soft: #f0f0f0;        /* Micro border */
+  --color-canvas: #ffffff;              
+  --color-canvas-parchment: #faf9f5;    /* Impeccable Off-White Parchment */
+  --color-surface-pearl: #f5f4ef;       
+  --color-surface-tile-1: #141413;      /* Deep Ink Tile surface */
+  --color-surface-tile-2: #1c1c1a;      
+  --color-surface-tile-3: #0d0d0c;      
+  --color-surface-black: #000000;       
+  
+  --color-hairline: #e2e0d8;            
+  --color-divider-soft: #eeece4;        
 
   /* Border Radii */
   --radius-none: 0px;
@@ -40,7 +44,7 @@
   --font-body: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
 
   /* Shadows - Applied strictly to product elements, never chrome */
-  --shadow-product: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+  --shadow-product: 0 12px 48px -12px rgba(0, 0, 0, 0.35);
 }
 
 /* Reset & Core Setup */
@@ -65,6 +69,28 @@ body {
   overflow-x: hidden;
   background-color: var(--color-surface-black);
   color: var(--color-body-on-dark);
+}
+
+/* Impeccable Custom Cursor (Desktop Only) */
+@media (pointer: fine) {
+  body {
+    cursor: default; /* Keep default cursor fallback, custom cursor tracks in overlay */
+  }
+
+  .impeccable-cursor {
+    position: fixed;
+    top: -12px;
+    left: -12px;
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    mix-blend-mode: difference;
+    will-change: transform;
+    transition: width 0.2s ease, height 0.2s ease;
+  }
 }
 
 /* Typography Hierarchy */
@@ -108,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
 }
 
-/* Apple Pill Buttons */
+/* Impeccable Magnetic Pill Buttons */
 .button-primary {
   display: inline-flex;
   align-items: center;
@@ -117,21 +143,19 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   font-family: var(--font-body);
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 500;
   padding: 11px 24px;
   border-radius: var(--radius-pill);
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.15s ease;
+  will-change: transform;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.3);
 }
 
 .button-primary:hover {
   background-color: #0052a3;
-}
-
-.button-primary:active {
-  transform: scale(0.95);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.45);
 }
 
 .button-secondary-pill {
@@ -139,24 +163,20 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  color: var(--color-primary);
+  color: var(--color-primary-on-dark);
   font-family: var(--font-body);
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 500;
   padding: 10px 22px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--color-primary-on-dark);
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  will-change: transform;
 }
 
 .button-secondary-pill:hover {
-  background-color: rgba(0, 102, 204, 0.08);
-}
-
-.button-secondary-pill:active {
-  transform: scale(0.95);
+  background-color: rgba(41, 151, 255, 0.1);
 }
 
 /* Full-bleed Product Tiles System */
@@ -197,7 +217,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 44px;
   z-index: 90;
   height: 52px;
-  background-color: rgba(245, 245, 247, 0.8);
+  background-color: rgba(250, 249, 245, 0.82);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -208,7 +228,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .frosted-sub-nav.dark {
-  background-color: rgba(29, 29, 31, 0.8);
+  background-color: rgba(20, 20, 19, 0.82);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }

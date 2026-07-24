@@ -60,11 +60,14 @@ import locations from '../data/locations.json';
 
   <ProjectEstimatorModal />
 
-  <!-- Initialize GSAP ScrollTrigger Engine -->
+  <!-- Initialize GSAP ScrollTrigger & Impeccable Aesthetics Engine -->
   <script>
     import { initScrollEngine } from '../scripts/scroll-engine.js';
+    import { initImpeccableFX } from '../scripts/impeccable-fx.js';
+    
     document.addEventListener('DOMContentLoaded', () => {
       initScrollEngine();
+      initImpeccableFX();
     });
   </script>
 </Layout>
