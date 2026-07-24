@@ -21,7 +21,7 @@
 
     <div class="nav-actions">
       <span class="tz-badge">EST / PST Active</span>
-      <a href="#booking-modal" class="nav-cta-link" id="nav-book-btn">Get Free Quote</a>
+      <a href="#booking-modal" class="nav-cta-pill" id="nav-book-btn">Get Quote</a>
     </div>
   </div>
 </header>
@@ -29,9 +29,9 @@
 <!-- Frosted Sub Nav (Sticks below top nav at 44px) -->
 <div class="frosted-sub-nav dark">
   <div class="sub-nav-inner">
-    <span class="category-title">1-Second Load Speed • Ranks #1 on Google & ChatGPT • Ready in 14 Days</span>
+    <span class="category-title">1-Sec Load • #1 Search Ranking • 14 Days</span>
     <div class="sub-nav-actions">
-      <span class="specs-pill">Zero Monthly Lock-in Fees</span>
+      <span class="specs-pill">Zero Monthly Fees</span>
       <a href="#booking-modal" class="button-primary btn-sm">Get Free Quote</a>
     </div>
   </div>
@@ -69,6 +69,7 @@
     font-size: 13px;
     letter-spacing: 0.06em;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .brand-sub {
@@ -96,7 +97,8 @@
   .nav-actions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
+    white-space: nowrap;
   }
 
   .tz-badge {
@@ -109,13 +111,23 @@
     font-weight: 500;
   }
 
-  .nav-cta-link {
-    color: var(--color-primary-on-dark);
-    font-size: 13px;
-    text-decoration: none;
+  .nav-cta-pill {
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 12px;
     font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
   }
 
+  .nav-cta-pill:hover {
+    background: #0052a3;
+  }
+
+  /* Frosted Sub Nav Bar (52px) */
   .sub-nav-inner {
     max-width: 1200px;
     width: 100%;
@@ -123,18 +135,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
   }
 
   .category-title {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: -0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0; /* Enables flex child ellipsis truncation */
   }
 
   .sub-nav-actions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
+    flex-shrink: 0;
   }
 
   .specs-pill {
@@ -145,10 +163,30 @@
   .btn-sm {
     padding: 6px 16px;
     font-size: 13px;
+    white-space: nowrap;
   }
 
+  /* Mobile Viewport Responsiveness Rules */
   @media (max-width: 768px) {
+    .nav-inner {
+      padding: 0 16px;
+    }
+
+    .frosted-sub-nav {
+      padding: 0 16px;
+    }
+
     .nav-links, .specs-pill {
+      display: none;
+    }
+
+    .category-title {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .tz-badge {
       display: none;
     }
   }
