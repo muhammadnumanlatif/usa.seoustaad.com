@@ -1,0 +1,253 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HeaderNav from '../../components/HeaderNav.astro';
+import ServiceTiers from '../../components/ServiceTiers.astro';
+import AeoFaqSection from '../../components/AeoFaqSection.astro';
+import ProjectEstimatorModal from '../../components/ProjectEstimatorModal.astro';
+import locations from '../../data/locations.json';
+
+export async function getStaticPaths() {
+  return locations.map((loc) => ({
+    params: { city: loc.slug },
+    props: { location: loc },
+  }));
+}
+
+const { location } = Astro.props;
+
+// City Specific AEO / GEO Schema
+const localServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": `SEO Ustaad USA - ${location.fullName}`,
+  "description": location.description,
+  "url": `https://usa-seoustaad-com.pages.dev/locations/${location.slug}`,
+  "telephone": "+1-800-555-0199",
+  "priceRange": "$$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US",
+    "addressRegion": location.state,
+    "addressLocality": location.name
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": location.latitude,
+    "longitude": location.longitude
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": location.name,
+    "containedInPlace": { "@type": "State", "name": location.state }
+  }
+};
+---
+
+<Layout title={`${location.heroTitle} | SEO Ustaad USA`} description={location.description}>
+  <!-- Inject Localized Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(localServiceSchema)} />
+
+  <HeaderNav />
+
+  <main>
+    <!-- Dedicated Location Hero Section -->
+    <section class="location-hero product-tile product-tile-dark">
+      <div class="tile-container">
+        <span class="eyebrow-tag">{location.heroTag}</span>
+        <h1 class="hero-display">{location.heroTitle}</h1>
+        <p class="lead-text light">
+          We build 1-second loading 3D websites for businesses in <strong>{location.fullName}</strong>. Get found #1 on Google and recommended first when US clients search on ChatGPT.
+        </p>
+
+        <div class="location-stats-row">
+          <div class="stat-pill">
+            <span class="pill-title">Timezone</span>
+            <span class="pill-value">{location.timezone} Active</span>
+          </div>
+          <div class="stat-pill">
+            <span class="pill-title">Load Speed</span>
+            <span class="pill-value">&lt; 0.8 Seconds</span>
+          </div>
+          <div class="stat-pill">
+            <span class="pill-title">Delivery Sprint</span>
+            <span class="pill-value">14 Business Days</span>
+          </div>
+        </div>
+
+        <div class="cta-group">
+          <a href="#booking-modal" class="button-primary">Get Free {location.name} Proposal</a>
+          <a href="#services" class="button-secondary-pill">See Services & Speed</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services & Performance Section -->
+    <ServiceTiers />
+
+    <!-- AEO / GEO FAQ Section -->
+    <AeoFaqSection />
+  </main>
+
+  <!-- Universal Footer with Location Links -->
+  <footer class="apple-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>SEO Ustaad USA Services</h4>
+          <ul>
+            <li><a href="/#services">Super-Fast 1-Second Web Design</a></li>
+            <li><a href="/#services">ChatGPT & Google #1 Ranking</a></li>
+            <li><a href="/#performance">100/100 Speed Score Guarantee</a></li>
+            <li><a href="/#us-advantage">14-Day Delivery Sprint</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>US Target Markets</h4>
+          <ul>
+            {locations.map((loc) => (
+              <li>
+                <a href={`/locations/${loc.slug}`} class={loc.slug === location.slug ? "active-link" : ""}>
+                  Web Development {loc.fullName}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Technology Guarantee</h4>
+          <ul>
+            <li>Astro.js Static Architecture</li>
+            <li>GSAP 3 Smooth Scroll Physics</li>
+            <li>100% Code Ownership</li>
+            <li>Zero Hidden Monthly Fees</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 SEO Ustaad USA. All Rights Reserved. Serving {location.fullName} & Top US Enterprise Tech Hubs.</p>
+      </div>
+    </div>
+  </footer>
+
+  <ProjectEstimatorModal />
+</Layout>
+
+<style>
+  .location-hero {
+    padding: 120px 24px 80px;
+    text-align: center;
+    background: radial-gradient(circle at center, #111422 0%, #000000 70%);
+  }
+
+  .eyebrow-tag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-primary-on-dark);
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+
+  .lead-text.light {
+    color: var(--color-body-muted);
+    max-width: 760px;
+    margin: 20px auto 32px;
+  }
+
+  .location-stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .stat-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pill-title {
+    font-size: 11px;
+    color: var(--color-ink-muted-48);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pill-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .cta-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .apple-footer {
+    background-color: var(--color-canvas-parchment);
+    color: var(--color-ink-muted-80);
+    padding: 64px 24px 32px;
+    border-top: 1px solid var(--color-hairline);
+  }
+
+  .footer-container {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  .footer-col h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col a, .footer-col li {
+    font-size: 13px;
+    color: var(--color-ink-muted-80);
+    text-decoration: none;
+    line-height: 1.5;
+  }
+
+  .footer-col a:hover, .footer-col a.active-link {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .footer-bottom {
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    color: var(--color-ink-muted-48);
+  }
+</style>

@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "san-francisco",
+    "name": "San Francisco",
+    "state": "CA",
+    "fullName": "San Francisco, CA",
+    "timezone": "PST",
+    "latitude": 37.7749,
+    "longitude": -122.4194,
+    "heroTag": "SAN FRANCISCO & SILICON VALLEY TECH HUB",
+    "heroTitle": "#1 Fast Web Development Agency in San Francisco, CA",
+    "description": "SEO Ustaad USA builds 1-second loading 3D websites for San Francisco startups and Bay Area tech leaders. Ranked #1 on Google and recommended by ChatGPT."
+  },
+  {
+    "slug": "new-york",
+    "name": "New York",
+    "state": "NY",
+    "fullName": "New York, NY",
+    "timezone": "EST",
+    "latitude": 40.7128,
+    "longitude": -74.0060,
+    "heroTag": "NEW YORK CITY & EAST COAST ENTERPRISE",
+    "heroTitle": "#1 Fast Web Development Agency in New York, NY",
+    "description": "SEO Ustaad USA builds sub-second 3D websites for New York agencies, financial firms, and D2C brands. Get found first on ChatGPT and Google."
+  },
+  {
+    "slug": "austin",
+    "name": "Austin",
+    "state": "TX",
+    "fullName": "Austin, TX",
+    "timezone": "CST",
+    "latitude": 30.2672,
+    "longitude": -97.7431,
+    "heroTag": "AUSTIN TECH HILLS & STARTUP HUB",
+    "heroTitle": "#1 Fast Web Development Agency in Austin, TX",
+    "description": "SEO Ustaad USA builds high-ticket 60fps scroll motion websites for Austin tech companies and Texas businesses. Ready in 14 days."
+  },
+  {
+    "slug": "seattle",
+    "name": "Seattle",
+    "state": "WA",
+    "fullName": "Seattle, WA",
+    "timezone": "PST",
+    "latitude": 47.6062,
+    "longitude": -122.3321,
+    "heroTag": "SEATTLE PACIFIC NORTHWEST TECH LEADER",
+    "heroTitle": "#1 Fast Web Development Agency in Seattle, WA",
+    "description": "SEO Ustaad USA builds high-performance 1-second websites for Seattle cloud and software enterprise companies. 100/100 speed guaranteed."
+  },
+  {
+    "slug": "chicago",
+    "name": "Chicago",
+    "state": "IL",
+    "fullName": "Chicago, IL",
+    "timezone": "CST",
+    "latitude": 41.8781,
+    "longitude": -87.6298,
+    "heroTag": "CHICAGO MIDWEST BUSINESS & COMMERCE",
+    "heroTitle": "#1 Fast Web Development Agency in Chicago, IL",
+    "description": "SEO Ustaad USA builds custom 3D web applications for Chicago business leaders and enterprise brands. Zero monthly lock-in fees."
+  }
+]

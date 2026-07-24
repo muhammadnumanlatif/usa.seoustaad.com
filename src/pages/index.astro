@@ -5,6 +5,7 @@ import ScrollVideoCanvas from '../components/ScrollVideoCanvas.astro';
 import ServiceTiers from '../components/ServiceTiers.astro';
 import AeoFaqSection from '../components/AeoFaqSection.astro';
 import ProjectEstimatorModal from '../components/ProjectEstimatorModal.astro';
+import locations from '../data/locations.json';
 ---
 
 <Layout title="SEO Ustaad USA | Super-Fast 1-Second Websites That Get You Customers">
@@ -31,11 +32,13 @@ import ProjectEstimatorModal from '../components/ProjectEstimatorModal.astro';
         <div class="footer-col">
           <h4>US Target Markets</h4>
           <ul>
-            <li>San Francisco, CA</li>
-            <li>New York, NY</li>
-            <li>Austin, TX</li>
-            <li>Seattle, WA</li>
-            <li>Chicago, IL</li>
+            {locations.map((loc) => (
+              <li>
+                <a href={`/locations/${loc.slug}`}>
+                  Web Development {loc.fullName}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
         <div class="footer-col">
