@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeaderNav from '../components/HeaderNav.astro';
+import ScrollVideoCanvas from '../components/ScrollVideoCanvas.astro';
+import ServiceTiers from '../components/ServiceTiers.astro';
+import AeoFaqSection from '../components/AeoFaqSection.astro';
+import ProjectEstimatorModal from '../components/ProjectEstimatorModal.astro';
+---
+
+<Layout title="Bespoke Scroll-Trigger Video & Motion Web Engineering | USA">
+  <HeaderNav />
+
+  <main>
+    <ScrollVideoCanvas />
+    <ServiceTiers />
+    <AeoFaqSection />
+  </main>
+
+  <footer class="apple-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Engineering Services</h4>
+          <ul>
+            <li><a href="#services">Canvas Motion Websites</a></li>
+            <li><a href="#services">Bespoke Astro Web Apps</a></li>
+            <li><a href="#performance">Core Web Vitals Guarantee</a></li>
+            <li><a href="#us-advantage">US Agency Sprint Model</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>US Target Hubs</h4>
+          <ul>
+            <li>San Francisco, CA (PST)</li>
+            <li>New York, NY (EST)</li>
+            <li>Austin, TX (CST)</li>
+            <li>Seattle, WA (PST)</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Technology Stack</h4>
+          <ul>
+            <li>Astro.js Static Engine</li>
+            <li>GSAP 3 & ScrollTrigger</li>
+            <li>HTML5 60fps Canvas Scrubber</li>
+            <li>Lenis Inertia Smooth Scroll</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 VELOCITY.DEV. Built for High-Ticket US Web Development Services. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <ProjectEstimatorModal />
+
+  <!-- Initialize GSAP ScrollTrigger Engine -->
+  <script>
+    import { initScrollEngine } from '../scripts/scroll-engine.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollEngine();
+    });
+  </script>
+</Layout>
+
+<style>
+  .apple-footer {
+    background-color: var(--color-canvas-parchment);
+    color: var(--color-ink-muted-80);
+    padding: 64px 24px 32px;
+    border-top: 1px solid var(--color-hairline);
+  }
+
+  .footer-container {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  .footer-col h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col a, .footer-col li {
+    font-size: 13px;
+    color: var(--color-ink-muted-80);
+    text-decoration: none;
+    line-height: 1.5;
+  }
+
+  .footer-col a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer-bottom {
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    color: var(--color-ink-muted-48);
+  }
+</style>

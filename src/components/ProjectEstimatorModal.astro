@@ -1,0 +1,150 @@
+---
+---
+
+<div id="booking-modal" class="modal-overlay">
+  <div class="modal-card">
+    <a href="#" class="close-modal">&times;</a>
+    
+    <span class="eyebrow">EST / PST DISCOVERY CALL</span>
+    <h2>Schedule Web Engineering Consultation</h2>
+    <p class="subtitle">Select your project scope below to request a bespoke proposal & 15-min discovery call.</p>
+
+    <form class="estimator-form" onsubmit="event.preventDefault(); alert('Proposal request submitted successfully! We will align with your US time zone within 4 hours.');">
+      <div class="form-group">
+        <label>Project Type</label>
+        <div class="chip-options">
+          <label class="chip"><input type="radio" name="type" value="canvas" checked /> 60fps Scroll Video Canvas</label>
+          <label class="chip"><input type="radio" name="type" value="app" /> Custom Astro / React Web App</label>
+          <label class="chip"><input type="radio" name="type" value="cro" /> High-Ticket SaaS Landing Page</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Estimated Timeline</label>
+        <div class="chip-options">
+          <label class="chip"><input type="radio" name="timeline" value="fast" checked /> 2 Weeks (Sprint)</label>
+          <label class="chip"><input type="radio" name="timeline" value="std" /> 4 Weeks (Standard)</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Your US Business Email</label>
+        <input type="email" required placeholder="alex@techbrand.com" class="input-field" />
+      </div>
+
+      <button type="submit" class="button-primary submit-btn">Request Custom US Proposal →</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(16px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-overlay:target {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal-card {
+    background: #141416;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    max-width: 580px;
+    width: 100%;
+    position: relative;
+    color: #ffffff;
+    box-shadow: var(--shadow-product);
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 28px;
+    color: #888;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .close-modal:hover {
+    color: #ffffff;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--color-body-muted);
+    margin-bottom: 24px;
+  }
+
+  .estimator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-primary-on-dark);
+  }
+
+  .chip-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip {
+    background: #222226;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 14px;
+    border-radius: 9999px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .chip input {
+    accent-color: var(--color-primary);
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 12px 16px;
+    background: #222226;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+  }
+
+  .input-field:focus {
+    border-color: var(--color-primary-on-dark);
+  }
+
+  .submit-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+    font-weight: 600;
+  }
+</style>

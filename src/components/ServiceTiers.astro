@@ -1,0 +1,226 @@
+---
+---
+
+<section id="services">
+  <!-- Tile 1: Full-bleed Light Tile (Pure White) -->
+  <div class="product-tile product-tile-light">
+    <div class="tile-container">
+      <span class="eyebrow">HIGH-TICKET ENGINEERING</span>
+      <h2 class="display-lg">Bespoke Web Application Development</h2>
+      <p class="lead-text">Custom Astro.js, Next.js, & React web solutions crafted for US venture-backed startups and enterprise leaders.</p>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon-wrap">⚡</div>
+          <h3>Sub-Second LCP</h3>
+          <p>Instant visual load under 0.8 seconds across US East & West coast CDNs.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-wrap">🛡️</div>
+          <h3>Zero Layout Shift</h3>
+          <p>Rock-solid CLS score (0.00) ensuring smooth readability on mobile & desktop.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-wrap">🎯</div>
+          <h3>CRO Architecture</h3>
+          <p>Engineered with psychological sales triggers to convert US visitors into high-ticket sales.</p>
+        </div>
+      </div>
+      
+      <div class="tile-actions">
+        <a href="#booking-modal" class="button-primary">Request Proposal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tile 2: Full-bleed Dark Tile (Void Black / Apple Tile 1) -->
+  <div class="product-tile product-tile-dark" id="performance">
+    <div class="tile-container">
+      <span class="eyebrow dark">PERFORMANCE GUARANTEE</span>
+      <h2 class="display-lg">100 / 100 Core Web Vitals</h2>
+      <p class="lead-text light">We guarantee perfect Google PageSpeed & Lighthouse metrics for every site we build.</p>
+
+      <div class="vitals-dashboard">
+        <div class="metric-box">
+          <span class="metric-value green">100</span>
+          <span class="metric-label">Performance</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-value green">100</span>
+          <span class="metric-label">Accessibility</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-value green">100</span>
+          <span class="metric-label">Best Practices</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-value green">100</span>
+          <span class="metric-label">SEO / AEO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tile 3: Full-bleed Parchment Tile (Apple Off-White #f5f5f7) -->
+  <div class="product-tile product-tile-parchment" id="us-advantage">
+    <div class="tile-container">
+      <span class="eyebrow">US MARKET SPECIALIZATION</span>
+      <h2 class="display-lg">Why US Brands Choose Our Engineering</h2>
+      <p class="lead-text">Dedicated time-zone alignment, transparent pricing, and rapid sprint execution.</p>
+
+      <div class="advantage-list">
+        <div class="advantage-item">
+          <span class="badge">EST & PST</span>
+          <div>
+            <h4>US Time Zone Active Hours</h4>
+            <p>Direct communication via Slack, Teams, and Google Meet during standard US business hours.</p>
+          </div>
+        </div>
+
+        <div class="advantage-item">
+          <span class="badge">2-WEEK SPRINT</span>
+          <div>
+            <h4>Rapid Delivery Timeline</h4>
+            <p>From initial design alignment to production deployment in as little as 14 business days.</p>
+          </div>
+        </div>
+
+        <div class="advantage-item">
+          <span class="badge">FULL CODE OWNERSHIP</span>
+          <div>
+            <h4>Clean, Documented Codebase</h4>
+            <p>You own 100% of your source code, IP rights, git repositories, and deployment pipelines.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+
+  .eyebrow.dark {
+    color: var(--color-primary-on-dark);
+  }
+
+  .lead-text.light {
+    color: var(--color-body-muted);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 48px 0;
+    text-align: left;
+  }
+
+  .feature-card {
+    background: var(--color-surface-pearl);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-hairline);
+  }
+
+  .icon-wrap {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .feature-card p {
+    font-size: 15px;
+    color: var(--color-ink-muted-80);
+    line-height: 1.5;
+  }
+
+  .vitals-dashboard {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+
+  .metric-box {
+    background: var(--color-surface-tile-2);
+    padding: 24px 36px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 160px;
+  }
+
+  .metric-value {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: var(--font-display);
+    display: block;
+  }
+
+  .metric-value.green {
+    color: #30d158;
+  }
+
+  .metric-label {
+    font-size: 13px;
+    color: var(--color-body-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .advantage-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 48px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .advantage-item {
+    background: #ffffff;
+    padding: 24px 32px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-hairline);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .badge {
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    white-space: nowrap;
+  }
+
+  .advantage-item h4 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .advantage-item p {
+    font-size: 15px;
+    color: var(--color-ink-muted-80);
+  }
+
+  .tile-actions {
+    margin-top: 32px;
+  }
+</style>

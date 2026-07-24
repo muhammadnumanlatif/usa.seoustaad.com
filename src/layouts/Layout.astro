@@ -1,0 +1,113 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Bespoke Web Development & GSAP Scroll Trigger Engineering | USA",
+  description = "High-performance web architecture, 3D GSAP ScrollTrigger canvas experiences, and 100/100 Core Web Vitals for US startups, enterprise brands, and creative agencies."
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// AEO & GEO Structured JSON-LD Data for US Market Services
+const professionalServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Bespoke GSAP & Web Engineering Studio",
+  "image": `${Astro.site}og-image.jpg`,
+  "@id": `${Astro.site}#organization`,
+  "url": Astro.site?.toString(),
+  "telephone": "+1-800-555-0199",
+  "priceRange": "$$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US",
+    "addressRegion": "CA",
+    "addressLocality": "San Francisco"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "United States" },
+    { "@type": "State", "name": "California" },
+    { "@type": "State", "name": "New York" },
+    { "@type": "State", "name": "Texas" }
+  ],
+  "knowsAbout": [
+    "GSAP ScrollTrigger Development",
+    "HTML5 Canvas Sequence Animation",
+    "Astro.js Static Site Generation",
+    "Sub-Second Core Web Vitals Optimization",
+    "US SaaS Landing Page Engineering"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Web Engineering Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Scroll-Trigger Canvas & Motion Websites",
+          "description": "60fps frame-scrubbed interactive canvas web experiences engineered with GSAP and Astro."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "High-Ticket SaaS & Agency Web Development",
+          "description": "100/100 Lighthouse performance optimized custom web applications for US tech disruptors."
+        }
+      }
+    ]
+  }
+};
+---
+
+<!usr-html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Meta Tags -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={Astro.url} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+
+  <!-- Fonts & Preloads -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AEO & GEO Structured Data (JSON-LD) -->
+  <script type="application/ld+json" set:html={JSON.stringify(professionalServiceSchema)} />
+</head>
+<body>
+  <slot />
+</body>
+</html>

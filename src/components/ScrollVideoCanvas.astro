@@ -1,0 +1,212 @@
+---
+---
+
+<section id="canvas-hero" class="canvas-scroll-section">
+  <!-- Fixed Fullscreen Canvas Scrubber Container -->
+  <div class="canvas-sticky-wrapper">
+    <canvas id="sequence-canvas"></canvas>
+
+    <!-- Canvas Loading Overlay Screen -->
+    <div id="canvas-loader" class="canvas-loader-screen">
+      <div class="loader-content">
+        <div class="loader-spinner"></div>
+        <p class="loader-title">INITIALIZING MOTION ENGINE</p>
+        <div class="progress-bar-bg">
+          <div id="loader-progress" class="progress-bar-fill"></div>
+        </div>
+        <span id="loader-text" class="progress-percentage">0%</span>
+      </div>
+    </div>
+
+    <!-- Pinned GSAP Text Overlays -->
+    <div class="pinned-overlays-container">
+      <!-- Overlay Frame 1: Hero -->
+      <div class="overlay-card active" id="overlay-1">
+        <span class="eyebrow-tag">APPLE-GRADE SCROLL PHYSICS</span>
+        <h1 class="hero-display">We Code Websites That Feel Alive.</h1>
+        <p class="lead-text">Sub-second performance meets 60fps frame-scrubbed motion for US tech disruptors.</p>
+        <div class="cta-group">
+          <a href="#booking-modal" class="button-primary">Schedule US Discovery Call</a>
+          <a href="#services" class="button-secondary-pill">Explore Architecture</a>
+        </div>
+      </div>
+
+      <!-- Overlay Frame 2: Physics -->
+      <div class="overlay-card" id="overlay-2">
+        <span class="eyebrow-tag">01 / CANVAS SCRUBBING ENGINE</span>
+        <h2 class="display-lg">Zero Video Lag. Instant Touch Response.</h2>
+        <p class="body-text">Unlike native HTML5 <code>&lt;video&gt;</code> scrubbing which stutters on iOS Safari, our custom 60fps Canvas engine synchronizes directly with the GPU hardware renderer on every scroll tick.</p>
+      </div>
+
+      <!-- Overlay Frame 3: Speed -->
+      <div class="overlay-card" id="overlay-3">
+        <span class="eyebrow-tag">02 / CORE WEB VITALS EXCELLENCE</span>
+        <h2 class="display-lg">100/100 Lighthouse Performance. Guaranteed.</h2>
+        <p class="body-text">Rich interactive motion doesn't have to compromise Google rankings. Built on Astro.js zero-JS static architecture for instant search indexing and sub-second LCP.</p>
+      </div>
+
+      <!-- Overlay Frame 4: US Target -->
+      <div class="overlay-card" id="overlay-4">
+        <span class="eyebrow-tag">03 / US AGENCY & TECH PARTNER</span>
+        <h2 class="display-lg">Engineered for US Startups & Enterprise.</h2>
+        <p class="body-text">Full EST & PST timezone alignment, rapid sprint cycles, and high-ticket conversion design tailored for Silicon Valley, NYC, and Austin tech brands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .canvas-scroll-section {
+    position: relative;
+    height: 400vh; /* 4 viewports for scroll trigger scrubbing */
+    background-color: #000000;
+  }
+
+  .canvas-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #sequence-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  /* Preloader Overlay */
+  .canvas-loader-screen {
+    position: absolute;
+    inset: 0;
+    background-color: #050507;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+
+  .canvas-loader-screen.loaded {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .loader-content {
+    text-align: center;
+    max-width: 320px;
+    width: 100%;
+  }
+
+  .loader-spinner {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 16px;
+    border: 2px solid rgba(0, 102, 204, 0.2);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .loader-title {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--color-ink-muted-48);
+    margin-bottom: 12px;
+  }
+
+  .progress-bar-bg {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--color-primary-on-dark);
+    transition: width 0.1s linear;
+  }
+
+  .progress-percentage {
+    font-size: 12px;
+    color: #ffffff;
+    font-family: monospace;
+  }
+
+  /* Pinned Text Overlay Cards */
+  .pinned-overlays-container {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .overlay-card {
+    position: absolute;
+    max-width: 720px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: auto;
+    background: rgba(10, 10, 12, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px 32px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .overlay-card.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .eyebrow-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--color-primary-on-dark);
+    margin-bottom: 12px;
+  }
+
+  .overlay-card h1, .overlay-card h2 {
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .overlay-card p {
+    color: var(--color-body-muted);
+    margin-bottom: 24px;
+  }
+
+  .cta-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+</style>
